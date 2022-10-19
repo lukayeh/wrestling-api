@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "Jon Moxley",
+        "birthName": "Jonathan David Good",
+        "dob": "07/12/1985",
+        "billFrom": "Cincinnati, Ohio",
+        "works_for": "AEW",
+        "finishingMoves": ["Arm trap cross-legged STF", "Midnight Special", "Regal Knee", "Paradigm Shift", "Death Rider"],
+        "signatureMoves": ["Money Clip","Suicide dive","Bow & Arrow","Fujiwara armbar","Diving elbow drop","Pendulum Lariat","Running Bulldog","Superplex","Twisting snap elbow drop","Standing Release Suplex","Piledriver"],
+        "nickNames": ["Mox","Lunatic Fringe","The Death Rider"]
+    },
+    {
+        "id": 2,
+        "name": "Homicide",
+        "birthName": "Nelson Erazo",
+        "dob": "20/03/1977",
+        "billFrom": "Brooklyn, New York",
+        "works_for": "AEW",
+        "finishingMoves": ["Cop Killa","F-Bomb","West Brooklyn Lariat","Gringo Cutter","Bronx Bomber","Cross STF","Rolling suplexes into Falcon Arrow"],
+        "signatureMoves": ["Cop Killa","F-Bomb","West Brooklyn Lariat","Gringo Cutter","Bronx Bomber","Cross STF","Rolling suplexes into Falcon Arrow"],
+        "nickNames": ["The Notorious 187"]
+    },
+    {
+        "id": 3,
+        "name": "Bryan Danielson",
+        "birthName": "Bryan Lloyd Danielson",
+        "dob": "22/05/1981",
+        "billFrom": "Aberdeen, Washington",
+        "works_for": "AEW",
+        "finishingMoves": ["Bridging dragon suplex","Cattle Mutilation","Crossface chickenwing","LeBell Lock","Regal-Plex","Triangle choke"],
+        "signatureMoves": ["Ankle lock","Arm trap seated abdominal stretch","Discus elbow smash","Dragon screw","Dragon sleeper","Drop toe-hold into the turnbuckles","European uppercut","Guillotine choke","Heel hook","High knee","Indian deathlock","Jumping knee drop","Rolling fireman's carry slam","Running leg lariat","Single leg Boston crab","Sleeper hold","Small package","Surfboard"],
+        "nickNames": ["The American Dragon", "The Flying Goat"]
+    }
+]
