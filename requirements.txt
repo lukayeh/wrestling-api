@@ -3,3 +3,5 @@ uvicorn
 flask
 pytest
 requests
+boto3
+python-dotenv==0.19.2

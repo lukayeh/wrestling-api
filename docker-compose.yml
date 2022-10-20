@@ -5,3 +5,8 @@ services:
           context: .
         ports:
           - 8002:8000
+    db:
+      image: amazon/dynamodb-local
+      restart: unless-stopped
+      ports:
+        - 8000:8000
