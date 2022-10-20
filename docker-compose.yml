@@ -1,10 +1,15 @@
 version: '3.3'
 services:
-    wrestling-api:
+    api:
         build:
           context: .
         ports:
-          - 8002:8000
+          - 8002:5000
+        environment:
+          DB_ENDPOINT: 'http://db:8000'
+          DB_REGION_NAME: us-east-1
+          DB_ACCESS_KEY_ID: example
+          DB_SECRET_ACCESS_KEY: example
     db:
       image: amazon/dynamodb-local
       restart: unless-stopped

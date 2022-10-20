@@ -36,7 +36,11 @@ def generate_table():
 
 def drop_table():
     ddb = initialize_db()
-    drop_wrestlers(ddb)
+    try:
+        drop_wrestlers(ddb)
+    except: 
+        print("Unable to drop table")
+        pass
 
 
 def populate_table():
@@ -50,6 +54,7 @@ def populate_table():
 
                 # Loop through the JSON objects
                 for wrestler in wrestlers:
+                    # print(wrestler)
                     batch.put_item(Item=wrestler)
         print("Successfully populated table wrestlers")
     except:
