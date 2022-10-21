@@ -20,21 +20,20 @@ def test_get_main():
         "version": __version__,
     }
 
+# def test_get_wrestler_bad_id():
+#     response = client.get("/wrestler?id=foo")
+#     assert response.status_code == 422
+#     assert response.json() == {
+#         "detail": [
+#             {
+#                 "loc": ["query", "id"],
+#                 "msg": "value is not a valid integer",
+#                 "type": "type_error.integer",
+#             }
+#         ]
+#     }
 
-def test_get_wrestler_bad_id():
-    response = client.get("/wrestler?id=foo")
-    assert response.status_code == 422
-    assert response.json() == {
-        "detail": [
-            {
-                "loc": ["query", "id"],
-                "msg": "value is not a valid integer",
-                "type": "type_error.integer",
-            }
-        ]
-    }
+# def test_get_wrestler_good_id():
+#     response = client.get("/wrestler?id=1")
+#     assert response.status_code == 200
 
-
-def test_get_wrestler_good_id():
-    response = client.get("/wrestler?id=1")
-    assert response.status_code == 200
