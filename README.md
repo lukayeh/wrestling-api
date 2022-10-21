@@ -1,3 +1,24 @@
+
+
+# wrestling-api
+
+<p align="center">
+<a href="https://sonarcloud.io/summary/overall?id=lukayeh_wrestling-api">
+<img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=alert_status">
+<img alt="Duplicated Lines (%)" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=duplicated_lines_density">
+<img alt="Reliability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=reliability_rating">
+<img alt="Technical Debt" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=sqale_index">
+<img alt="Lines of Code" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=ncloc">
+<img alt="Code Smells" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=code_smells">
+<img alt="Maintainability Rating" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=sqale_rating">
+<img alt="Security Rating" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=security_rating">
+<img alt="Bugs" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=bugs">
+<img alt="Vulnerabilities" src="https://sonarcloud.io/api/project_badges/measure?project=lukayeh_wrestling-api&metric=vulnerabilities">
+</a>
+<img alt="Python 3.9" src="https://img.shields.io/badge/python-3.9-blue">
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+</p>
+
 # Getting started
 
 Start the api using: `sh run.sh`
