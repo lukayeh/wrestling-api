@@ -17,8 +17,8 @@ def initialize_db():
 def generate_wrestlers(ddb):
     ddb.create_table(
         TableName="wrestlers",
-        AttributeDefinitions=[{"AttributeName": "id", "AttributeType": "N"}],
-        KeySchema=[{"AttributeName": "id", "KeyType": "HASH"}],
+        AttributeDefinitions=[{"AttributeName": "name", "AttributeType": "S"}],
+        KeySchema=[{"AttributeName": "name", "KeyType": "HASH"}],
         ProvisionedThroughput={"ReadCapacityUnits": 10, "WriteCapacityUnits": 10},
     )
     print("Successfully created table wrestlers")
@@ -38,7 +38,7 @@ def drop_table():
     ddb = initialize_db()
     try:
         drop_wrestlers(ddb)
-    except: 
+    except:
         print("Unable to drop table")
         pass
 

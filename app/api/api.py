@@ -1,40 +1,82 @@
-# import json
+import json
+
 from app.db.db import initialize_db
 
 db = initialize_db()
 
 
 def read_wrestler():
-    # with open("data/wrestlers.json") as stream:
-    # wrestlers = json.load(stream)
     table = db.Table("wrestlers")
     response = table.scan()
     wrestlers = response.get("Items", [])
 
-    return wrestlers
+    return json.dumps(wrestlers, indent=1, sort_keys=True)
 
 
-def get_wrestler(position: int):
-    # with open("data/wrestlers.json") as stream:
-    #     wrestlers = json.load(stream)
+def query_wrestler(query):
+    queriesList = []
+    for x in query:
+        if x[1] is not None:
+            queriesList.append(x)
 
-    # return position
     table = db.Table("wrestlers")
     response = table.scan()
     wrestlers = response.get("Items", [])
 
-    for wrestler in wrestlers:
-        if wrestler["id"] == position:
-            return wrestler
+    if len(queriesList) == 0:
+        return read_wrestler()
+
+    if len(queriesList) > 1:
+        return json.dumps(
+            {
+                "message": "query list can only be 1 currently..",
+                "category": "failed",
+                "status": 400,
+            }
+        )
+
+    queryKey = queriesList[0][0]
+    queryValue = query = queriesList[0][1]
+
+    wrestlers = [x for x in wrestlers if queryValue.lower() in x[queryKey].lower()]
+
+    return json.dumps(wrestlers, indent=1, sort_keys=True)
 
 
-def search_wrestler(query):
-    # with open("data/wrestlers.json") as stream:
-    #     wrestlers = json.load(stream)
+def create_wrestler(wrestler):
+
     table = db.Table("wrestlers")
-    response = table.scan()
-    wrestlers = response.get("Items", [])
+    name = wrestler.name
+    billFrom = wrestler.billFrom
+    signatureMoves = wrestler.signatureMoves
+    finishingMoves = wrestler.finishingMoves
+    dob = wrestler.dob
+    works_for = wrestler.works_for
+    birthName = wrestler.birthName
+    nickNames = wrestler.nickNames
 
-    output_dict = [x for x in wrestlers if query.lower() in x["name"].lower()]
+    try:
+        table.put_item(
+            Item={
+                "name": name,
+                "billFrom": billFrom,
+                "signatureMoves": signatureMoves,
+                "finishingMoves": finishingMoves,
+                "dob": dob,
+                "works_for": works_for,
+                "birthName": birthName,
+                "nickNames": nickNames,
+            }
+        )
+    except Exception as x:
+        return {
+            "message": f"Faled to create: {name} with error {x}",
+            "category": "failed",
+            "status": 400,
+        }
 
-    return output_dict
+    return {
+        "message": f"Successfully created: {name}",
+        "category": "success",
+        "status": 200,
+    }

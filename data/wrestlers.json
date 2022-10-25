@@ -1,6 +1,5 @@
 [
     {
-        "id": 1,
         "name": "Jon Moxley",
         "birthName": "Jonathan David Good",
         "dob": "07/12/1985",
@@ -11,7 +10,6 @@
         "nickNames": ["Mox","Lunatic Fringe","The Death Rider"]
     },
     {
-        "id": 2,
         "name": "Homicide",
         "birthName": "Nelson Erazo",
         "dob": "20/03/1977",
@@ -22,7 +20,6 @@
         "nickNames": ["The Notorious 187"]
     },
     {
-        "id": 3,
         "name": "Bryan Danielson",
         "birthName": "Bryan Lloyd Danielson",
         "dob": "22/05/1981",

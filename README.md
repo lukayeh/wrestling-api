@@ -9,14 +9,32 @@ Get all wrestlers:
 curl http://127.0.0.1:8000/wrestler
 ```
 
-Get wrestler by id:
-```
-curl http://127.0.0.1:8000/wrestler?id=1
-```
-
 Search wrestler by name:
 ```
 curl http://127.0.0.1:8000/wrestler\?name\=Jon%20Moxley
+```
+
+Add wrestler using curl:
+```
+curl -X POST http://0.0.0.0:5000/wrestler \
+   -H 'Content-Type: application/json' \
+   -d '{
+  "name": "Mangey Jeff",
+  "billFrom": "Chelsmford, United Kingdom",
+  "signatureMoves": [
+    "Dodgy Knee"
+  ],
+  "finishingMoves": [
+    "Mange maker"
+  ],
+  "dob": "20/03/1991",
+  "works_for": "Free Agent",
+  "birthName": "Jeff Mange",
+  "nickNames": [
+    "The Mangey one"
+  ]
+}'
+
 ```
 
 *note:* `%20` is to replace a `space`

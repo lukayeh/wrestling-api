@@ -1,9 +1,9 @@
 import json
 from os.path import dirname
-from typing import Optional
 
 from app.api import api
-from fastapi import FastAPI, HTTPException
+from app.models import models
+from fastapi import Depends, FastAPI, HTTPException
 
 app = FastAPI()
 
@@ -18,32 +18,18 @@ async def root():
     return {"message": "Wrestler API in Python", "version": __version__}
 
 
-# Get wrestler inclusive of ID query and search by.
+# Search by model!.
 @app.get("/wrestler")
-async def get_wrestler(id: Optional[int] = None, name: Optional[str] = None):
+async def get_wrestler(queries: models.Querymodel = Depends()):
+    wrestlers = api.query_wrestler(queries)
 
-    # Error if trying to search by both!
-    if name and id:
-        raise HTTPException(
-            status_code=400,
-            detail="Cannot query by NAME and ID at the same time",  # noqa: E501
-        )
-    # Filter by id
-    elif id:
-        wrestler = api.get_wrestler(id)
+    if not wrestlers:
+        raise HTTPException(status_code=400, detail="Error")
 
-        if not wrestler:
-            raise HTTPException(status_code=400, detail="Error")
+    return json.loads(wrestlers)
 
-        return wrestler
-    # Search data by name
-    elif name:
-        wrestlers = api.search_wrestler(name)
 
-        if not wrestlers:
-            raise HTTPException(status_code=400, detail="Error")
-
-        return wrestlers
-
-    # Default returns all
-    return api.read_wrestler()
+@app.post("/wrestler")
+async def create_wrestler(item: models.Item):
+    wrestler = api.create_wrestler(item)
+    return wrestler
